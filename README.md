@@ -73,7 +73,7 @@ Make sure you have the following installed:
 
 ### Database Setup
 
-- The application uses [H2](https://www.h2database.com/html/main.html) by default for development. You can change the database configuration in the `application.properties` file of the backend if you need a different database.
+- The application uses MySQL as database for development. You can change the database configuration in the `application.properties` file of the backend if you need a different database.
 
 ## API Endpoints
 
