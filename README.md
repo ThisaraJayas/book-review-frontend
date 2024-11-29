@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# Book Review Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a Book Review web application where users can submit, edit, view, and delete book reviews. It consists of a Spring Boot backend and a React frontend. Users can rate books, write reviews, and edit their previous submissions.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Add Review**: Users can add new book reviews with the title, author, rating (1-5), and review text.
+- **Edit Review**: Users can edit an existing review based on its ID.
+- **Delete Review**: Users can delete a review by its ID.
+- **View Reviews**: Users can view all reviews stored in the database.
+- **Responsive UI**: The frontend is styled using Tailwind CSS, ensuring the app is responsive and looks good on all screen sizes.
 
-### `npm start`
+## Technology Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React, Tailwind CSS, Axios for HTTP requests
+- **Backend**: Spring Boot, RESTful API
+- **Database**: H2 (configured for development), can be replaced with any relational database
+- **CORS**: Configured to allow requests from `http://localhost:3000` (frontend)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup Instructions
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Make sure you have the following installed:
 
-### `npm run build`
+- [Java 17 or higher](https://adoptopenjdk.net/) (for the backend)
+- [Node.js](https://nodejs.org/en/) (for the frontend)
+- [Maven](https://maven.apache.org/install.html) (for the backend)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Backend Setup (Spring Boot)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the backend repository:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ```bash
+    git clone https://github.com/your-username/book-review-backend.git
+    cd book-review-backend
+    ```
 
-### `npm run eject`
+2. Build and run the Spring Boot application:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    ```bash
+    ./mvnw spring-boot:run
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    Or you can run it using your IDE.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. The backend will run on `http://localhost:8080` by default. Make sure the backend is running before starting the frontend.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. The backend is set up to allow cross-origin requests from `http://localhost:3000`, but if you deploy it elsewhere, update the CORS settings in the backend.
 
-## Learn More
+### Frontend Setup (React)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the frontend repository:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```bash
+    git clone https://github.com/your-username/book-review-frontend.git
+    cd book-review-frontend
+    ```
 
-### Code Splitting
+2. Install the necessary dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    ```bash
+    npm install
+    ```
 
-### Analyzing the Bundle Size
+3. Start the React application:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    ```bash
+    npm start
+    ```
 
-### Making a Progressive Web App
+    This will run the frontend at `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Database Setup
 
-### Advanced Configuration
+- The application uses [H2](https://www.h2database.com/html/main.html) by default for development. You can change the database configuration in the `application.properties` file of the backend if you need a different database.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## API Endpoints
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **GET `/reviews`**: Fetch all reviews.
+- **GET `/reviews/{id}`**: Fetch a review by its ID.
+- **POST `/reviews`**: Create a new review.
+- **PUT `/reviews/{id}`**: Update an existing review by its ID.
+- **DELETE `/reviews/{id}`**: Delete a review by its ID.
