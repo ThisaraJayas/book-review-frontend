@@ -44,7 +44,7 @@ export default function Home() {
   };
 
   return (
-    <div className="container mx-auto mt-8 px-4">
+    <div className="container mx-auto mt-8 px-4 mb-10">
       <h2 className="text-3xl font-extrabold text-blue-700 mb-6 text-center">
         Book Reviews
       </h2>
